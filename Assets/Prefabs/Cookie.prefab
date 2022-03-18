@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 730934590152634257}
   - component: {fileID: 730934590152634262}
   - component: {fileID: 8789430563084400143}
-  m_Layer: 0
+  - component: {fileID: 5390959605542591827}
+  m_Layer: 8
   m_Name: Cookie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8091387964077193850}
+  - {fileID: 2011388852898974417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,13 +58,25 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730934590152634256}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 962be19e9e526214bad52dda24afce14, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.15
   m_Height: 0.34
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5390959605542591827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730934590152634256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f7a9265b0f554a88e7e7f0744f4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &730934590169770412
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +88,7 @@ GameObject:
   - component: {fileID: 730934590169770413}
   - component: {fileID: 730934590169770403}
   - component: {fileID: 730934590169770402}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +169,7 @@ GameObject:
   - component: {fileID: 730934590534506337}
   - component: {fileID: 730934590534506343}
   - component: {fileID: 730934590534506342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +250,7 @@ GameObject:
   - component: {fileID: 730934591250944027}
   - component: {fileID: 730934591250944025}
   - component: {fileID: 730934591250944024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +331,7 @@ GameObject:
   - component: {fileID: 730934591768149546}
   - component: {fileID: 730934591768149544}
   - component: {fileID: 730934591768149547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +412,7 @@ GameObject:
   - component: {fileID: 270707155261516852}
   - component: {fileID: 9081978749366402743}
   - component: {fileID: 5988423887852569815}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,6 +482,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4611669030709049918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011388852898974417}
+  - component: {fileID: 8448966937797140835}
+  - component: {fileID: 1876748088605234184}
+  m_Layer: 8
+  m_Name: Crush
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011388852898974417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611669030709049918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 730934590152634257}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8448966937797140835
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611669030709049918}
+  m_Material: {fileID: 13400000, guid: 962be19e9e526214bad52dda24afce14, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1876748088605234184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611669030709049918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220f284f0085e524b970bf3b54cfe7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 730934590152634256}
+  crushedByTags:
+  - Robot
+  - Food
 --- !u!1 &7108355785291723875
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +555,7 @@ GameObject:
   - component: {fileID: 6006921292812698084}
   - component: {fileID: 3901093513807747498}
   - component: {fileID: 8324492769779297892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8091387964077193850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
