@@ -80,6 +80,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e1d7106-77c8-4e5c-9187-c20a1086c3e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -346,6 +355,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Jaw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0bfe01a4-8f94-42af-afea-8b6688842a8d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c70ddd34-10c1-41a1-9c6c-da83a78afd7d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -360,6 +391,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Robot_RVertical = m_Robot.FindAction("RVertical", throwIfNotFound: true);
         m_Robot_Wrist = m_Robot.FindAction("Wrist", throwIfNotFound: true);
         m_Robot_Jaw = m_Robot.FindAction("Jaw", throwIfNotFound: true);
+        m_Robot_Reset = m_Robot.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,6 +457,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Robot_RVertical;
     private readonly InputAction m_Robot_Wrist;
     private readonly InputAction m_Robot_Jaw;
+    private readonly InputAction m_Robot_Reset;
     public struct RobotActions
     {
         private @InputActions m_Wrapper;
@@ -435,6 +468,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @RVertical => m_Wrapper.m_Robot_RVertical;
         public InputAction @Wrist => m_Wrapper.m_Robot_Wrist;
         public InputAction @Jaw => m_Wrapper.m_Robot_Jaw;
+        public InputAction @Reset => m_Wrapper.m_Robot_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Robot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,6 +496,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jaw.started -= m_Wrapper.m_RobotActionsCallbackInterface.OnJaw;
                 @Jaw.performed -= m_Wrapper.m_RobotActionsCallbackInterface.OnJaw;
                 @Jaw.canceled -= m_Wrapper.m_RobotActionsCallbackInterface.OnJaw;
+                @Reset.started -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_RobotActionsCallbackInterface = instance;
             if (instance != null)
@@ -484,6 +521,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Jaw.started += instance.OnJaw;
                 @Jaw.performed += instance.OnJaw;
                 @Jaw.canceled += instance.OnJaw;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -496,5 +536,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnRVertical(InputAction.CallbackContext context);
         void OnWrist(InputAction.CallbackContext context);
         void OnJaw(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

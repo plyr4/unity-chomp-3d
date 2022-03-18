@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {   
     [SerializeField]
-    public InputActions actions;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public PlayerInput playerInput;
+    bool reload = false;
+
+    void Start() {
+        playerInput = gameObject.GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (playerInput == null) {
+            print("no player input");
+            return;
+        }
+        if (playerInput.actions["Reset"].ReadValue<float>() != 0 && !reload) {
+            reload = true;
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        } 
     }
 }
