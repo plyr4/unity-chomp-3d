@@ -7,14 +7,14 @@ public class Food : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {   
         if (other.gameObject.tag == "Mouth") {
-            other.gameObject.GetComponent<Mouth>().AddItem(gameObject);
+            other.gameObject.GetComponentInParent<Mouth>().AddItem(gameObject);
         }
     }
 
     void OnTriggerExit(Collider other)
     {   
         if (other.gameObject.tag == "Mouth") {
-            other.gameObject.GetComponent<Mouth>().RemoveItem(gameObject);
+            other.gameObject.GetComponentInParent<Mouth>().RemoveItem(gameObject);
         }
     }
 }

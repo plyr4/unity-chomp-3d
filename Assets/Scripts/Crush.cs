@@ -15,6 +15,7 @@ public class Crush : MonoBehaviour
     void OnTriggerEnter (Collider other){
         foreach (string tag in crushedByTags) {
             if (other.gameObject.tag == tag) {
+               print("crush");
                Destroy(obj);
                return;
             }

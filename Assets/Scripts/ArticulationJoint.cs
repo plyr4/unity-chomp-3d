@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class ArticulationJoint : MonoBehaviour
 {   
     public float speed = 300.0f;
-    private ArticulationBody articulation;
+    public ArticulationBody articulation;
     public PlayerInput playerInput;
     public string axis;
     public float inputAxis;
@@ -35,7 +35,7 @@ public class ArticulationJoint : MonoBehaviour
         }
     }
 
-    float CurrentPrimaryAxisRotation()
+    public float CurrentPrimaryAxisRotation()
     {
         float currentRotationRads = articulation.jointPosition[0];
         float currentRotation = Mathf.Rad2Deg * currentRotationRads;
