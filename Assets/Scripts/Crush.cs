@@ -5,6 +5,7 @@ using UnityEngine;
 public class Crush : MonoBehaviour
 {
     public GameObject obj;
+    public Food food;
     public List<string> crushedByTags;
 
     void Start()
@@ -15,7 +16,9 @@ public class Crush : MonoBehaviour
     void OnTriggerEnter (Collider other){
         foreach (string tag in crushedByTags) {
             if (other.gameObject.tag == tag) {
-               print("crush");
+               if (food != null && food.edible) {
+                   print("crush-chomp");
+               }
                Destroy(obj);
                return;
             }

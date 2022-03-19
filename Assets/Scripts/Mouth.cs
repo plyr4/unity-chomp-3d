@@ -5,15 +5,15 @@ using UnityEngine;
 public class Mouth : MonoBehaviour
 {
     public List<GameObject> food;
-    public ArticulationJoint articulationJoint;
+    public ArticulationJoint jawArticulationJoint;
     void Start()
     {
         food = new List<GameObject>();
-        if (articulationJoint == null) articulationJoint = GetComponentInChildren<ArticulationJoint>();
+        if (jawArticulationJoint == null) jawArticulationJoint = GetComponentInChildren<ArticulationJoint>();
     }
 
     void Update() {
-        if (Mathf.Abs(articulationJoint.articulation.xDrive.upperLimit - articulationJoint.CurrentPrimaryAxisRotation()) < 0.1f) {
+        if (jawArticulationJoint.AtUpperLimit()) {
             for (int i = food.Count - 1; i >= 0; i--)
             {
                 GameObject f = food[i];

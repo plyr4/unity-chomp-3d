@@ -89,6 +89,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LRest"",
+                    ""type"": ""Button"",
+                    ""id"": ""f69057e3-ec63-4860-9f45-8e33b9419036"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RRest"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0ea3da3-373b-4e73-b506-2deb5d57ae48"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -377,6 +395,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51374b69-1775-4b89-96db-43cc7bfb20f5"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LRest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8371f6a-3c40-48d9-92cd-12fa9e78e7a3"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RRest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -392,6 +432,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Robot_Wrist = m_Robot.FindAction("Wrist", throwIfNotFound: true);
         m_Robot_Jaw = m_Robot.FindAction("Jaw", throwIfNotFound: true);
         m_Robot_Reset = m_Robot.FindAction("Reset", throwIfNotFound: true);
+        m_Robot_LRest = m_Robot.FindAction("LRest", throwIfNotFound: true);
+        m_Robot_RRest = m_Robot.FindAction("RRest", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -458,6 +500,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Robot_Wrist;
     private readonly InputAction m_Robot_Jaw;
     private readonly InputAction m_Robot_Reset;
+    private readonly InputAction m_Robot_LRest;
+    private readonly InputAction m_Robot_RRest;
     public struct RobotActions
     {
         private @InputActions m_Wrapper;
@@ -469,6 +513,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Wrist => m_Wrapper.m_Robot_Wrist;
         public InputAction @Jaw => m_Wrapper.m_Robot_Jaw;
         public InputAction @Reset => m_Wrapper.m_Robot_Reset;
+        public InputAction @LRest => m_Wrapper.m_Robot_LRest;
+        public InputAction @RRest => m_Wrapper.m_Robot_RRest;
         public InputActionMap Get() { return m_Wrapper.m_Robot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -499,6 +545,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Reset.started -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
                 @Reset.performed -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
                 @Reset.canceled -= m_Wrapper.m_RobotActionsCallbackInterface.OnReset;
+                @LRest.started -= m_Wrapper.m_RobotActionsCallbackInterface.OnLRest;
+                @LRest.performed -= m_Wrapper.m_RobotActionsCallbackInterface.OnLRest;
+                @LRest.canceled -= m_Wrapper.m_RobotActionsCallbackInterface.OnLRest;
+                @RRest.started -= m_Wrapper.m_RobotActionsCallbackInterface.OnRRest;
+                @RRest.performed -= m_Wrapper.m_RobotActionsCallbackInterface.OnRRest;
+                @RRest.canceled -= m_Wrapper.m_RobotActionsCallbackInterface.OnRRest;
             }
             m_Wrapper.m_RobotActionsCallbackInterface = instance;
             if (instance != null)
@@ -524,6 +576,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Reset.started += instance.OnReset;
                 @Reset.performed += instance.OnReset;
                 @Reset.canceled += instance.OnReset;
+                @LRest.started += instance.OnLRest;
+                @LRest.performed += instance.OnLRest;
+                @LRest.canceled += instance.OnLRest;
+                @RRest.started += instance.OnRRest;
+                @RRest.performed += instance.OnRRest;
+                @RRest.canceled += instance.OnRRest;
             }
         }
     }
@@ -537,5 +595,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnWrist(InputAction.CallbackContext context);
         void OnJaw(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnLRest(InputAction.CallbackContext context);
+        void OnRRest(InputAction.CallbackContext context);
     }
 }
