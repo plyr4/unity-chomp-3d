@@ -6,6 +6,9 @@ public class Mouth : MonoBehaviour
 {
     public List<GameObject> food;
     public ArticulationJoint jawArticulationJoint;
+
+    public ParticleSystem crumbs;
+
     void Start()
     {
         food = new List<GameObject>();
@@ -19,6 +22,9 @@ public class Mouth : MonoBehaviour
                 GameObject f = food[i];
                 food.RemoveAt(i);
                 Destroy(f);
+                
+                ParticleSystem c = Instantiate(crumbs);
+                c.transform.position = f.transform.position;
             }
         } 
     }

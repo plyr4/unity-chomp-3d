@@ -7,6 +7,8 @@ public class Crush : MonoBehaviour
     public GameObject obj;
     public Food food;
     public List<string> crushedByTags;
+    public ParticleSystem crumbs;
+
 
     void Start()
     {
@@ -19,7 +21,10 @@ public class Crush : MonoBehaviour
                if (food != null && food.edible) {
                    print("crush-chomp");
                }
-               Destroy(obj);
+
+               if (obj != null) Destroy(obj);
+               ParticleSystem c = Instantiate(crumbs);
+               c.transform.position = obj.transform.position;
                return;
             }
         }
