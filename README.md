@@ -1,6 +1,14 @@
 # unity-chomp-3d
 starter project for chomp proof of concepts in 3D
 
+## demo
+
+try the WebGL build hosted on GitHub pages:
+
+https://plyr4.github.io/unity-chomp-3d
+
+use a controller/gamepad for the best experience :smile:
+
 ## summary
 
 the arm is built using articulation bodies, colliders, and joint rotations using joint motors
