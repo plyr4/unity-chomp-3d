@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7845105253014701647}
   - component: {fileID: 2237789022656048604}
   m_Layer: 0
-  m_Name: Crumbs
+  m_Name: CookieCrumbs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 100000000
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3622,7 +3622,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.7
       minScalar: 0
       maxCurve:
         serializedVersion: 2

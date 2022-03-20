@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5872960673817454899}
   m_Layer: 8
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.32999998, y: 0.032789998, z: 0.32999998}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &1171532180691154749
 MeshFilter:
@@ -105,11 +105,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 730934590152634257}
-  - component: {fileID: 5390959605542591827}
   - component: {fileID: 4984881602436424209}
+  - component: {fileID: 5459229513429126891}
   m_Layer: 8
   m_Name: Cookie
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4884530078452823168}
+  - {fileID: 2011388852898974417}
   - {fileID: 3512738901304608447}
   - {fileID: 2780010942216689762}
   - {fileID: 4794294745751768783}
@@ -134,24 +136,9 @@ Transform:
   - {fileID: 730934590169770413}
   - {fileID: 730934590534506337}
   - {fileID: 6006921292812698084}
-  - {fileID: 2011388852898974417}
-  - {fileID: 4884530078452823168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5390959605542591827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730934590152634256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122f7a9265b0f554a88e7e7f0744f4f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  edible: 0
 --- !u!54 &4984881602436424209
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,6 +155,22 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 56
   m_CollisionDetection: 2
+--- !u!114 &5459229513429126891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730934590152634256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f7a9265b0f554a88e7e7f0744f4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crushedByTags:
+  - Robot
+  - Food
+  crumbs: {fileID: 7845105253014701647, guid: 5150edcb625b5cf4fb7074ee6788f8fe, type: 3}
 --- !u!1 &730934590169770412
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +184,7 @@ GameObject:
   - component: {fileID: 730934590169770402}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +201,7 @@ Transform:
   m_LocalScale: {x: 0.049500003, y: 0.032554746, z: 0.04}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &730934590169770403
 MeshFilter:
@@ -262,7 +265,7 @@ GameObject:
   - component: {fileID: 730934590534506342}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,7 +282,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.0302276, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &730934590534506343
 MeshFilter:
@@ -343,7 +346,7 @@ GameObject:
   - component: {fileID: 730934591250944024}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +363,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.03249288, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &730934591250944025
 MeshFilter:
@@ -424,7 +427,7 @@ GameObject:
   - component: {fileID: 730934591768149547}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +444,7 @@ Transform:
   m_LocalScale: {x: 0.028050002, y: 0.033834293, z: 0.026400002}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &730934591768149544
 MeshFilter:
@@ -505,7 +508,7 @@ GameObject:
   - component: {fileID: 4829565849774121448}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,7 +525,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.030725267, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!33 &8326366088442052752
 MeshFilter:
@@ -583,10 +586,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2011388852898974417}
   - component: {fileID: 8448966937797140835}
-  - component: {fileID: 1876748088605234184}
   m_Layer: 8
   m_Name: Crush
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,7 +605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 9
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &8448966937797140835
 CapsuleCollider:
@@ -619,24 +621,6 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1876748088605234184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611669030709049918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 220f284f0085e524b970bf3b54cfe7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj: {fileID: 730934590152634256}
-  food: {fileID: 5390959605542591827}
-  crushedByTags:
-  - Robot
-  - Food
-  crumbs: {fileID: 7845105253014701647, guid: 5150edcb625b5cf4fb7074ee6788f8fe, type: 3}
 --- !u!1 &5908949898149539833
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +634,7 @@ GameObject:
   - component: {fileID: 2721941497834274215}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,7 +651,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.028583216, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &3806863089450379211
 MeshFilter:
@@ -731,7 +715,7 @@ GameObject:
   - component: {fileID: 2260965975735127430}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,7 +732,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.028583216, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0.749, y: 2.957, z: -9.712}
 --- !u!33 &2389939717025144797
 MeshFilter:
@@ -812,7 +796,7 @@ GameObject:
   - component: {fileID: 8324492769779297892}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,7 +813,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.0302276, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &3901093513807747498
 MeshFilter:
@@ -893,7 +877,7 @@ GameObject:
   - component: {fileID: 1238489722126528728}
   m_Layer: 8
   m_Name: Chip
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -910,7 +894,7 @@ Transform:
   m_LocalScale: {x: 0.033000004, y: 0.028583216, z: 0.033000004}
   m_Children: []
   m_Father: {fileID: 730934590152634257}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &8198894344914111937
 MeshFilter:
