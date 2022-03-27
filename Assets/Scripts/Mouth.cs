@@ -4,26 +4,26 @@ using UnityEngine;
 public class Mouth : MonoBehaviour
 {
     [SerializeField]
-    public ArticulationJoint jawArticulationJoint;
+    private ArticulationJoint jawArticulationJoint;
+
+    private float mouthTriggerCapsuleRadius = 0.2f;
+
+    private float mouthTriggerSphere1YOffset = -0.07f;
+
+    private float mouthTriggerSphere2YOffset = -0.38f;
+
     [SerializeField]
-    public int mouthCapacity;
+    private int mouthCapacity;
+
     [SerializeField]
-    public float mouthTriggerCapsuleRadius = 0.2f;
-    [SerializeField]
-    public float mouthTriggerSphere1YOffset = -0.07f;
-    [SerializeField]
-    public float mouthTriggerSphere2YOffset = -0.38f;
     private Collider[] inMouthTrigger;
 
-
-    // Start:
     void Start()
     {
         if (jawArticulationJoint == null) jawArticulationJoint = GetComponentInChildren<ArticulationJoint>();
         inMouthTrigger = new Collider[mouthCapacity];
     }
 
-    // Update:
     void Update()
     {
         if (jawArticulationJoint.AtUpperLimit())

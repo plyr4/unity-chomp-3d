@@ -94,7 +94,7 @@
                     "path": "<Gamepad>/leftStick/x",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "LHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -104,7 +104,7 @@
                     "id": "0bed7796-46e9-4ecc-b9d4-b35c80be2c10",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "groups": "",
                     "action": "LHorizontal",
                     "isComposite": true,
@@ -116,7 +116,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "LHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -127,7 +127,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "LHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -138,7 +138,7 @@
                     "path": "<Gamepad>/leftStick/y",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "LVertical",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -148,7 +148,7 @@
                     "id": "539069f4-0f52-46e6-815c-a0a076f3c962",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "AxisDeadzone",
                     "groups": "",
                     "action": "LVertical",
                     "isComposite": true,
@@ -160,7 +160,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "LVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -171,7 +171,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "LVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -182,7 +182,7 @@
                     "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -204,7 +204,7 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "RHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -215,7 +215,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "RHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -226,7 +226,7 @@
                     "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RVertical",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -248,7 +248,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "RVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -259,7 +259,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "RVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -270,7 +270,7 @@
                     "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Wrist",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -281,7 +281,7 @@
                     "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Wrist",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -303,7 +303,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Wrist",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -314,7 +314,7 @@
                     "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Wrist",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -325,7 +325,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "AxisDeadzone",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Jaw",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -347,7 +347,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Jaw",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -358,7 +358,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "MouseKeyboard",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -369,7 +369,7 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -380,7 +380,7 @@
                     "path": "<Gamepad>/leftStickPress",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "LRest",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -391,7 +391,7 @@
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RRest",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -399,5 +399,33 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "MouseKeyboard",
+            "bindingGroup": "MouseKeyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

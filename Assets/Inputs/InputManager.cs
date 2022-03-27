@@ -1,28 +1,70 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
-{   
-    [SerializeField]
+{
     public PlayerInput playerInput;
-    bool reload = false;
 
-    void Start() {
-        playerInput = gameObject.GetComponent<PlayerInput>();
+
+    [System.Serializable]
+    public class PlayerJoint
+    {
+        public string name;
+        public string rotateInputAction;
+        public string restInputAction;
+        public ArticulationJoint joint;
+
+        [SerializeField]
+        private float smoothInputSpeed = 0.2f;
+        private float axisDeadzone = 0.00001f;
+        private float currentAxis;
+        private float smoothInputVelocity;
+        public bool damp;
+
+        public void Rotate(PlayerInput playerInput) {
+           joint.Rotate(ReadRotateAxis(playerInput), ReadRestAxis(playerInput));
+        }
+
+        public float ReadRotateAxis(PlayerInput playerInput)
+        {
+            if (String.IsNullOrWhiteSpace(rotateInputAction)) return 0f;
+            float axis = playerInput.actions[rotateInputAction].ReadValue<float>();
+            currentAxis = Mathf.SmoothDamp(currentAxis, axis, ref smoothInputVelocity, smoothInputSpeed);
+            // if (Mathf.Abs(currentAxis) < axisDeadzone) return 0f;
+            // if (axis == 1f) return currentAxis;
+            return axis;
+        }
+
+        public float ReadRestAxis(PlayerInput playerInput)
+        {
+            if (String.IsNullOrWhiteSpace(restInputAction)) return 0f;
+            return playerInput.actions[restInputAction].ReadValue<float>();
+        }
     }
 
-    void Update() {
-        if (playerInput == null) {
-            print("no player input");
-            return;
+    public List<PlayerJoint> joints;
+
+    void Start()
+    {
+        playerInput = GetComponent<PlayerInput>();
+    }
+
+    void FixedUpdate()
+    {
+        // reset scene
+        if (playerInput.actions["Reset"].ReadValue<float>() != 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (playerInput.actions["Reset"].ReadValue<float>() != 0 && !reload) {
-            reload = true;
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        } 
+
+        // operate joints
+        foreach (PlayerJoint j in joints)
+        {
+            if (j != null) j.Rotate(playerInput);
+        }
     }
 }
