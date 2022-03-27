@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
 {
     public PlayerInput playerInput;
 
+    [SerializeField]
+    private float keyboardAxisSmoothModifier = 0.1f;
 
     [System.Serializable]
     public class PlayerJoint
@@ -18,34 +20,50 @@ public class InputManager : MonoBehaviour
         public string restInputAction;
         public ArticulationJoint joint;
 
-        [SerializeField]
-        private float smoothInputSpeed = 0.2f;
-        private float axisDeadzone = 0.00001f;
         private float currentAxis;
-        private float smoothInputVelocity;
-        public bool damp;
+        private float currentAxisVelocity;
 
-        public void Rotate(PlayerInput playerInput) {
-           joint.Rotate(ReadRotateAxis(playerInput), ReadRestAxis(playerInput));
+        // rotates the articulation joint using the input manager
+        public void Rotate(InputManager inputManager)
+        {
+            // read input and rotate the component
+            joint.Rotate(ReadRotateAxis(inputManager), ReadRestAxis(inputManager));
         }
 
-        public float ReadRotateAxis(PlayerInput playerInput)
+        // read the input axis for rotation
+        public float ReadRotateAxis(InputManager inputManager)
         {
             if (String.IsNullOrWhiteSpace(rotateInputAction)) return 0f;
-            float axis = playerInput.actions[rotateInputAction].ReadValue<float>();
-            currentAxis = Mathf.SmoothDamp(currentAxis, axis, ref smoothInputVelocity, smoothInputSpeed);
-            // if (Mathf.Abs(currentAxis) < axisDeadzone) return 0f;
-            // if (axis == 1f) return currentAxis;
+
+            // read axis input
+            float axis = inputManager.playerInput.actions[rotateInputAction].ReadValue<float>();
+
+            // smooth keyboard axis between 0 and 1
+            if (inputManager.playerInput.currentControlScheme == "MouseKeyboard")
+            {
+                if (axis != 0f)
+                {
+                    currentAxis = Mathf.SmoothDamp(currentAxis, axis, ref currentAxisVelocity, inputManager.keyboardAxisSmoothModifier, Mathf.Infinity, Time.fixedDeltaTime);
+                    return currentAxis;
+                }
+                else
+                {
+                    currentAxis = 0f;
+                    currentAxisVelocity = 0f;
+                }
+            }
             return axis;
         }
 
-        public float ReadRestAxis(PlayerInput playerInput)
+        // read the input axis for rest
+        public float ReadRestAxis(InputManager inputManager)
         {
             if (String.IsNullOrWhiteSpace(restInputAction)) return 0f;
-            return playerInput.actions[restInputAction].ReadValue<float>();
+            return inputManager.playerInput.actions[restInputAction].ReadValue<float>();
         }
     }
 
+    // list of joints to control
     public List<PlayerJoint> joints;
 
     void Start()
@@ -64,7 +82,7 @@ public class InputManager : MonoBehaviour
         // operate joints
         foreach (PlayerJoint j in joints)
         {
-            if (j != null) j.Rotate(playerInput);
+            if (j != null) j.Rotate(this);
         }
     }
 }

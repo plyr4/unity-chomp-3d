@@ -43,17 +43,18 @@ public class ArticulationJoint : MonoBehaviour
         float direction = rotateInputAxis;
 
         // if no rotational input and should rest
-        if (direction == 0 && ShouldRest(restInputAxis))
+        if (ShouldRest(rotateInputAxis, restInputAxis))
         {      
             direction = 1f;
             if (GetCurrentPrimaryAxisRotation() > _restRotation) direction = -1f;
         }
-
         float rotationChange = direction * inputAxisModifier * rotationSpeed * Time.fixedDeltaTime;
-        float rotationGoal = GetCurrentPrimaryAxisRotation() + rotationChange;
 
-        // rotate
-        RotateTo(rotationGoal);
+        // rotate if necessary
+        if (rotationChange != 0f) { 
+            float rotationGoal = GetCurrentPrimaryAxisRotation() + rotationChange;
+            RotateTo(rotationGoal);
+        }
 
         // change pivot color
         UpdatePivotColor(rotateInputAxis);
@@ -86,9 +87,9 @@ public class ArticulationJoint : MonoBehaviour
     }
 
     // returns true if joint should return to rest rotation
-    bool ShouldRest(float restInputAxis)
+    bool ShouldRest(float rotateInputAxis, float restInputAxis)
     {
-        return (autoRest || restInputAxis != 0f) && !AtRest();
+        return (rotateInputAxis == 0f) && (autoRest || restInputAxis != 0f) && !AtRest();
     }
 
     // return current axis rotation in degrees

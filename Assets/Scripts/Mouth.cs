@@ -8,9 +8,8 @@ public class Mouth : MonoBehaviour
 
     private float mouthTriggerCapsuleRadius = 0.2f;
 
-    private float mouthTriggerSphere1YOffset = -0.07f;
-
-    private float mouthTriggerSphere2YOffset = -0.38f;
+    private float mouthTriggerSphere1YOffset = 0.31f;
+    private float mouthTriggerSphere2YOffset = 0.04f;
 
     [SerializeField]
     private int mouthCapacity;
@@ -46,5 +45,13 @@ public class Mouth : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        // draw gizmo capsule to visualize the mouth collider
+        Gizmos.color = new Color(0, 256, 0, 0.5f);
+        Gizmos.DrawSphere(new Vector3(this.transform.position.x, this.transform.position.y - mouthTriggerSphere1YOffset, this.transform.position.z), mouthTriggerCapsuleRadius);
+        Gizmos.DrawSphere(new Vector3(this.transform.position.x, this.transform.position.y - mouthTriggerSphere2YOffset, this.transform.position.z), mouthTriggerCapsuleRadius);
     }
 }
