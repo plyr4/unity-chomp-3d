@@ -5,6 +5,7 @@ starter project for chomp proof of concepts in 3D
 
 try the WebGL build hosted on GitHub pages:
 
+(disabled for the time being, sorry!)
 https://plyr4.github.io/unity-chomp-3d
 
 use a controller/gamepad for the best experience :smile:
